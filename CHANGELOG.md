@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/cauchy2384/leaguewatcherbot/compare/v1.0.0...v1.0.1) (2026-05-04)
+
+
+### Bug Fixes
+
+* disable 'latest' tag in Docker image publishing ([6ff7e8d](https://github.com/cauchy2384/leaguewatcherbot/commit/6ff7e8dd0eecce97c127e3b2912c5df5f23a050d))
+
 # 1.0.0 (2026-05-04)
 
 
