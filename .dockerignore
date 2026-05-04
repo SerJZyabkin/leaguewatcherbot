@@ -1,0 +1,69 @@
+# Git and version control
+.git
+.gitignore
+.gitattributes
+
+# CI/CD
+.github
+.gitlab-ci.yml
+
+# IDE files
+.vscode
+.idea
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Documentation (keep README.md only)
+*.md
+!README.md
+ARCHITECTURE.md
+CONTRIBUTING.md
+AGENTS.md
+docs/
+
+# Build artifacts
+leaguewatcherbot
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Go workspace
+go.work
+go.work.sum
+
+# Runtime data (created at runtime, not needed in image)
+pidors.json
+log.json
+*.log
+
+# Environment files (NEVER include in image)
+.env
+.env.*
+!.env.example
+
+# Test files (not needed in production image)
+*_test.go
+
+# Tools directory
+tools/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Docker files themselves
+Dockerfile
+.dockerignore
+docker-compose*.yml
+
+# Claude AI artifacts
+.claude/
+
+# ADR directory (documentation)
+adr/

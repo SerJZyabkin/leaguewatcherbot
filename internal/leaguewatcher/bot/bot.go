@@ -34,7 +34,7 @@ type Config struct {
 	OwnerID    string
 	PidorsFile string
 	LogFile    string
-	ChannelID string
+	ChannelID  string
 }
 
 func New(cfg Config, matchesCh chan leaguewatcher.Match, logger *zap.Logger) (*Bot, error) {

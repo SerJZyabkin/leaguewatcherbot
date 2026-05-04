@@ -3,10 +3,11 @@ package bot
 import (
 	"context"
 	"fmt"
-	"leaguewatcher/internal/leaguewatcher"
 	"os"
 	"testing"
 	"time"
+
+	"leaguewatcher/internal/leaguewatcher"
 
 	"github.com/bwmarrin/discordgo"
 	"github.com/matryer/is"
@@ -18,6 +19,9 @@ func TestBot(t *testing.T) {
 	is := is.New(t)
 
 	token := os.Getenv("BOT_DISCORD_TOKEN")
+	if token == "" {
+		t.Skip("BOT_DISCORD_TOKEN is not set")
+	}
 
 	ch := make(chan leaguewatcher.Match)
 
@@ -64,6 +68,9 @@ func TestKek(t *testing.T) {
 	is := is.New(t)
 
 	token := os.Getenv("BOT_DISCORD_TOKEN")
+	if token == "" {
+		t.Skip("BOT_DISCORD_TOKEN is not set")
+	}
 
 	dg, err := discordgo.New("Bot " + token)
 	is.NoErr(err)
