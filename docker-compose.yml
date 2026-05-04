@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  leaguewatcher:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      cache_from:
+        - leaguewatcher:latest
+    image: leaguewatcher:latest
+    container_name: leaguewatcher-bot
+
+    # Auto-restart on crashes
+    restart: unless-stopped
+
+    # Required environment variables (from .env file)
+    environment:
+      - BOT_DISCORD_TOKEN=${BOT_DISCORD_TOKEN}
+      - BOT_OWNER_ID=${BOT_OWNER_ID}
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+
+    # Volume strategy:
+    # - Named volume for entire /app directory (persistence)
+    # - Override config.yaml specifically via bind mount
+    volumes:
+      # Persistent data volume
+      - leaguewatcher-data:/app
+
+      # Config override (read-only for production)
+      - ./config.yaml:/app/config.yaml:ro
+
+    # Resource limits (prevent runaway usage)
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+        reservations:
+          cpus: '0.25'
+          memory: 128M
+
+    # Log rotation to prevent disk fill
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+# Named volume for data persistence
+volumes:
+  leaguewatcher-data:
+    driver: local
