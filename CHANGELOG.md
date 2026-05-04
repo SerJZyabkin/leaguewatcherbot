@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/cauchy2384/leaguewatcherbot/compare/v1.0.1...v1.0.2) (2026-05-04)
+
+
+### Bug Fixes
+
+* disable broken Mobalytics profile refresh ([5893ebf](https://github.com/cauchy2384/leaguewatcherbot/commit/5893ebfa432d88141f6dd649996f70ad2cd6752f))
+
 ## [1.0.1](https://github.com/cauchy2384/leaguewatcherbot/compare/v1.0.0...v1.0.1) (2026-05-04)
 
 
