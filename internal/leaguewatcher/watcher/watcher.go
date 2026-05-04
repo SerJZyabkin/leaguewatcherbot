@@ -86,13 +86,15 @@ func (w *Watcher) checkPlayers(ctx context.Context, ch chan leaguewatcher.Match)
 			ctx, cancel := context.WithTimeout(ctx, 120*time.Second)
 			defer cancel()
 
-			w.logger.Debug("refreshing player", zap.String("player", player.Name))
-			status, err := w.api.RefreshProfile(ctx, player.Region, player.Name, player.Tag)
-			if err != nil {
-				w.logger.Warn("failed to refresh", zap.String("player", player.Name), zap.Error(err))
-			} else {
-				w.logger.Debug("refreshed", zap.String("player", player.Name), zap.String("status", status))
-			}
+			// TODO: Profile refresh disabled - Mobalytics API changed, needs investigation
+			// See ADR-003 for details and plan to re-enable
+			// w.logger.Debug("refreshing player", zap.String("player", player.Name))
+			// status, err := w.api.RefreshProfile(ctx, player.Region, player.Name, player.Tag)
+			// if err != nil {
+			// 	w.logger.Warn("failed to refresh", zap.String("player", player.Name), zap.Error(err))
+			// } else {
+			// 	w.logger.Debug("refreshed", zap.String("player", player.Name), zap.String("status", status))
+			// }
 
 			w.logger.Debug("checking player", zap.String("player", player.Name))
 			matches, err := w.api.Matches(ctx, player.Region, player.Name, player.Tag)

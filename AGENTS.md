@@ -565,6 +565,53 @@ git push origin feature-branch
 
 ---
 
+## Architecture Decision Records (ADRs)
+
+**Location**: `adr/` directory in repository root
+
+### When to Create ADRs
+
+**CRITICAL**: Create an ADR for:
+- New features or significant functionality changes
+- Architectural decisions (technology choices, design patterns)
+- Breaking changes or major refactors
+- Removal or disabling of existing features
+- Infrastructure or deployment changes
+
+**Format**: Follow existing ADR structure (see `adr/001-docker-containerization.md` as reference):
+- **Status**: Accepted, Proposed, Deprecated, Superseded
+- **Date**: YYYY-MM-DD
+- **Context**: Why is this decision needed? What problem are we solving?
+- **Decision**: What are we doing? Be specific about the approach.
+- **Consequences**: 
+  - **Positive**: What benefits does this bring?
+  - **Negative**: What drawbacks or risks?
+  - **Neutral**: What are the trade-offs or things to note?
+- **Alternatives Considered**: What other approaches were evaluated and why were they rejected?
+- **Future Work**: What needs to happen next? What's the plan for follow-up?
+- **References**: Code locations, documentation, external resources
+- **Reviewers**: Author, approver, date
+- **Changelog**: History of updates to this ADR
+
+**Numbering**: Use next sequential number (001, 002, 003, etc.)
+
+### Examples
+
+- **adr/001-docker-containerization.md** - Docker deployment decision, multi-stage builds, volume strategy
+- **adr/002-ci-cd-docker-pipeline.md** - CI/CD pipeline with semantic versioning, automated releases
+- **adr/003-disable-profile-refresh.md** - Temporarily disabling broken Mobalytics profile refresh feature
+
+### ADR Best Practices
+
+1. **Write ADRs during implementation**, not after - capture context while fresh
+2. **Be specific**: Include file paths, line numbers, configuration values
+3. **Document alternatives**: Future developers need to understand why you chose this path
+4. **Update ADRs**: If decision is superseded or reversed, update the status and add changelog entry
+5. **Reference ADRs in code**: Use `// See ADR-XXX` comments to link decisions to implementation
+6. **Link related ADRs**: Cross-reference when decisions build on or conflict with previous ones
+
+---
+
 **Last Updated**: 2026-05-04  
 **Go Version**: 1.22.0+  
 **Maintainer**: [@cauchy2384](https://github.com/cauchy2384)
