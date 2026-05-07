@@ -9,6 +9,9 @@ import (
 )
 
 func (b *Bot) khaleesi(ctx context.Context, s *discordgo.Session, m *discordgo.MessageCreate) {
+	if b.kh == nil {
+		return
+	}
 
 	input := m.Message.Content
 	if utf8.RuneCountInString(input) < 10 {
@@ -35,5 +38,11 @@ func (b *Bot) khaleesi(ctx context.Context, s *discordgo.Session, m *discordgo.M
 
 func (b *Bot) resetKhaleesi() {
 	b.cnt.Store(0)
-	b.thresh.Store(rand.Int31()%20 + 10)
+	base := *b.cfg.KhaleesiThreshold
+	jitter := rand.Int31n(21) - 10 // ±10 messages jitter
+	threshold := int32(base) + jitter
+	if threshold < 1 {
+		threshold = 1
+	}
+	b.thresh.Store(threshold)
 }
