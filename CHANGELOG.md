@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/cauchy2384/leaguewatcherbot/compare/v1.0.2...v1.1.0) (2026-05-07)
+
+
+### Features
+
+* make Khaleesi text replacement feature configurable ([#4](https://github.com/cauchy2384/leaguewatcherbot/issues/4)) ([83e1a46](https://github.com/cauchy2384/leaguewatcherbot/commit/83e1a465ed9a377dc6eb206cfa0bb353abe87f40))
+
 ## [1.0.2](https://github.com/cauchy2384/leaguewatcherbot/compare/v1.0.1...v1.0.2) (2026-05-04)
 
 
