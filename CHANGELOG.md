@@ -1,3 +1,5 @@
+## [1.1.1](https://github.com/cauchy2384/leaguewatcherbot/compare/v1.1.0...v1.1.1) (2026-05-07)
+
 # [1.1.0](https://github.com/cauchy2384/leaguewatcherbot/compare/v1.0.2...v1.1.0) (2026-05-07)
 
 
