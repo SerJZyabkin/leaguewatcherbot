@@ -1,3 +1,11 @@
+# [1.3.0](https://github.com/cauchy2384/leaguewatcherbot/compare/v1.2.0...v1.3.0) (2026-05-08)
+
+
+### Features
+
+* add Gemini integration test and update prompt ([cb9feb9](https://github.com/cauchy2384/leaguewatcherbot/commit/cb9feb96478707faae236041aa82b19fa7ecbc92))
+* integrate Gemini AI for natural language interaction ([331c8d5](https://github.com/cauchy2384/leaguewatcherbot/commit/331c8d5e8771dae14dac5010accab43af51b3653))
+
 # [1.2.0](https://github.com/cauchy2384/leaguewatcherbot/compare/v1.1.2...v1.2.0) (2026-05-08)
 
 
