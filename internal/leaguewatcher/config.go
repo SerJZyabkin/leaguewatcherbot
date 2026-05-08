@@ -22,8 +22,11 @@ type Config struct {
 	KhaleesiThreshold *int     `yaml:"khaleesi_threshold,omitempty"`
 
 	// Secrets from Doppler (never logged)
-	DiscordToken string `yaml:"-"` // BOT_DISCORD_TOKEN
-	OwnerID      string `yaml:"-"` // BOT_OWNER_ID
+	DiscordToken       string `yaml:"-"` // BOT_DISCORD_TOKEN
+	OwnerID            string `yaml:"-"` // BOT_OWNER_ID
+	GeminiAPIKey       string `yaml:"-"` // GEMINI_API_KEY
+	GeminiSystemPrompt string `yaml:"-"` // GEMINI_SYSTEM_PROMPT
+	GeminiModel        string `yaml:"-"` // GEMINI_MODEL
 }
 
 func (cfg Config) IsValid() error {
@@ -79,6 +82,8 @@ func (cfg Config) LogValue() slog.Value {
 		slog.Any("khaleesi_threshold", cfg.KhaleesiThreshold),
 		slog.String("discord_token", "***REDACTED***"),
 		slog.String("owner_id", "***REDACTED***"),
+		slog.String("gemini_api_key", "***REDACTED***"),
+		slog.String("gemini_model", cfg.GeminiModel),
 	)
 }
 
@@ -198,6 +203,24 @@ func (cm *ConfigManager) Reload(ctx context.Context) error {
 	// Parse owner_id (required)
 	if ownerIDSecret, ok := secrets["BOT_OWNER_ID"]; ok && ownerIDSecret.Computed != nil {
 		newConfig.OwnerID = *ownerIDSecret.Computed
+	}
+
+	// Parse gemini_api_key
+	if geminiAPIKeySecret, ok := secrets["GEMINI_API_KEY"]; ok && geminiAPIKeySecret.Computed != nil {
+		newConfig.GeminiAPIKey = *geminiAPIKeySecret.Computed
+	}
+
+	// Parse gemini_system_prompt
+	if geminiSystemPromptSecret, ok := secrets["GEMINI_SYSTEM_PROMPT"]; ok && geminiSystemPromptSecret.Computed != nil {
+		newConfig.GeminiSystemPrompt = *geminiSystemPromptSecret.Computed
+	}
+
+	// Parse gemini_model
+	if geminiModelSecret, ok := secrets["GEMINI_MODEL"]; ok && geminiModelSecret.Computed != nil {
+		newConfig.GeminiModel = *geminiModelSecret.Computed
+	}
+	if newConfig.GeminiModel == "" {
+		newConfig.GeminiModel = "gemini-2.0-flash"
 	}
 
 	// Validate the new config

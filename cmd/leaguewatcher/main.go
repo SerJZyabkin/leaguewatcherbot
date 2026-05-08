@@ -76,6 +76,7 @@ func main() {
 			ChannelID:         cfg.ChannelID,
 			KhaleesiThreshold: cfg.KhaleesiThreshold,
 		},
+		configMgr,
 		ch,
 		logger.With("component", "bot"),
 	)

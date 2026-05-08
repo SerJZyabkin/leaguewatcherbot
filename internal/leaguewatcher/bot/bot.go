@@ -14,8 +14,9 @@ import (
 )
 
 type Bot struct {
-	cfg    Config
-	logger *slog.Logger
+	cfg       Config
+	configMgr *leaguewatcher.ConfigManager
+	logger    *slog.Logger
 
 	matchesCh chan leaguewatcher.Match
 	tracks    *TracksMap
@@ -50,7 +51,7 @@ func (cfg Config) LogValue() slog.Value {
 	)
 }
 
-func New(cfg Config, matchesCh chan leaguewatcher.Match, logger *slog.Logger) (*Bot, error) {
+func New(cfg Config, configMgr *leaguewatcher.ConfigManager, matchesCh chan leaguewatcher.Match, logger *slog.Logger) (*Bot, error) {
 	logger.Info("bot created", slog.Any("config", cfg))
 
 	pidors, err := NewPidors(cfg.PidorsFile)
@@ -59,8 +60,9 @@ func New(cfg Config, matchesCh chan leaguewatcher.Match, logger *slog.Logger) (*
 	}
 
 	bot := Bot{
-		cfg:    cfg,
-		logger: logger,
+		cfg:       cfg,
+		configMgr: configMgr,
+		logger:    logger,
 
 		matchesCh: matchesCh,
 		tracks:    NewTracksMap(logger.With("component", "tracks")),
@@ -136,6 +138,20 @@ func (b *Bot) cmd(ctx context.Context, s *discordgo.Session, m *discordgo.Messag
 		return
 	}
 
+	content := strings.TrimSpace(m.Content)
+	mention := fmt.Sprintf("<@%s>", s.State.User.ID)
+	mentionNick := fmt.Sprintf("<@!%s>", s.State.User.ID)
+
+	isMentioned := false
+	query := ""
+	if strings.HasPrefix(content, mention) {
+		isMentioned = true
+		query = strings.TrimSpace(strings.TrimPrefix(content, mention))
+	} else if strings.HasPrefix(content, mentionNick) {
+		isMentioned = true
+		query = strings.TrimSpace(strings.TrimPrefix(content, mentionNick))
+	}
+
 	cmd := m.Content
 	switch {
 	case strings.EqualFold(cmd, "!info"):
@@ -153,7 +169,11 @@ func (b *Bot) cmd(ctx context.Context, s *discordgo.Session, m *discordgo.Messag
 	case strings.EqualFold(cmd, "!pidorok"):
 		b.pidorPersonalStats(ctx, s, m)
 	default:
-		b.khaleesi(ctx, s, m)
+		if isMentioned && query != "" {
+			b.ask(ctx, s, m, query)
+		} else {
+			b.khaleesi(ctx, s, m)
+		}
 	}
 
 	event := leaguewatcher.NewEvent(cmd, fmt.Sprintf("%s %s", m.Author.Username, m.Author.ID))

@@ -29,7 +29,7 @@ func TestBot(t *testing.T) {
 	bot, err := New(Config{
 		Token:   token,
 		OwnerID: "cauchy2384",
-	}, ch, slog.New(slog.NewTextHandler(io.Discard, nil)))
+	}, nil, ch, slog.New(slog.NewTextHandler(io.Discard, nil)))
 	is.NoErr(err)
 
 	_, err = bot.Run(ctx)
