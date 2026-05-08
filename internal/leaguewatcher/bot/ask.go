@@ -14,7 +14,7 @@ import (
 
 type geminiRequest struct {
 	SystemInstruction *geminiSystemInstruction `json:"system_instruction,omitempty"`
-	Contents          []geminiContent           `json:"contents"`
+	Contents          []geminiContent          `json:"contents"`
 }
 
 type geminiSystemInstruction struct {
