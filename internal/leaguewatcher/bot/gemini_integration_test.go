@@ -39,7 +39,7 @@ func TestGeminiIntegration(t *testing.T) {
 	}
 
 	// Test the API call logic directly
-	query := "Hello, who are you? Answer in one short sentence."
+	query := "Сколько боссов в бвл?"
 	reqBody := geminiRequest{
 		Contents: []geminiContent{
 			{
