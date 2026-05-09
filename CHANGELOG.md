@@ -1,3 +1,15 @@
+# [1.5.0](https://github.com/cauchy2384/leaguewatcherbot/compare/v1.4.0...v1.5.0) (2026-05-09)
+
+
+### Bug Fixes
+
+* resolve lint failure and update development guidelines ([#14](https://github.com/cauchy2384/leaguewatcherbot/issues/14)) ([c7d0ed5](https://github.com/cauchy2384/leaguewatcherbot/commit/c7d0ed51a386d07282132ec78c6be63bb9fdcaf4))
+
+
+### Features
+
+* add generation parameters to Gemini configuration ([#12](https://github.com/cauchy2384/leaguewatcherbot/issues/12)) ([e6aafae](https://github.com/cauchy2384/leaguewatcherbot/commit/e6aafaebc5a6cdfabd0d18f81d9832d572fe1ccf))
+
 # [1.4.0](https://github.com/cauchy2384/leaguewatcherbot/compare/v1.3.0...v1.4.0) (2026-05-09)
 
 
