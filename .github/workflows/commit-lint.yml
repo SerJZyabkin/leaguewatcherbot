@@ -1,0 +1,42 @@
+name: "Lint PR Title"
+
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - synchronize
+      - reopened
+
+permissions:
+  pull-requests: read
+
+jobs:
+  main:
+    name: Validate PR Title
+    runs-on: ubuntu-latest
+    steps:
+      - name: semantic-pull-request
+        uses: amannn/action-semantic-pull-request@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          # Configure which types are allowed (matching .releaserc.json)
+          types: |
+            feat
+            fix
+            perf
+            revert
+            refactor
+            docs
+            style
+            chore
+            test
+            build
+            ci
+          # Require a scope to be provided? (optional)
+          requireScope: false
+          # Ensure there is a subject
+          subjectPattern: ^(?![A-Z]).+$
+          subjectPatternError: |
+            The subject part of the PR title must not start with an uppercase letter.
