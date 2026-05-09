@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/cauchy2384/leaguewatcherbot/compare/v1.3.0...v1.4.0) (2026-05-09)
+
+
+### Features
+
+* finalize migration to Vertex AI ([1753eb4](https://github.com/cauchy2384/leaguewatcherbot/commit/1753eb4569f524d5526c4ff3d572b393f8a564d0))
+
 # [1.3.0](https://github.com/cauchy2384/leaguewatcherbot/compare/v1.2.0...v1.3.0) (2026-05-08)
 
 
