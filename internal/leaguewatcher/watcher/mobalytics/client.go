@@ -148,8 +148,8 @@ func (c *Client) Matches(ctx context.Context, region, summoner, tag string,
 		Data struct {
 			Lol struct {
 				Player struct {
-					Name         string `json:"name"`
-					Region       string `json:"region"`
+					Name           string `json:"name"`
+					Region         string `json:"region"`
 					MatchesHistory struct {
 						Matches []struct {
 							Id       int    `json:"id"`

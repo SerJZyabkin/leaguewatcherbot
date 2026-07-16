@@ -1,3 +1,27 @@
+# 1.0.0 (2026-07-16)
+
+
+### Bug Fixes
+
+* add missing conventional-changelog-conventionalcommits plugin ([715621a](https://github.com/SerJZyabkin/leaguewatcherbot/commit/715621abf6680af28494cd47c0b197e4e37f41df))
+* disable 'latest' tag in Docker image publishing ([6ff7e8d](https://github.com/SerJZyabkin/leaguewatcherbot/commit/6ff7e8dd0eecce97c127e3b2912c5df5f23a050d))
+* disable broken Mobalytics profile refresh ([5893ebf](https://github.com/SerJZyabkin/leaguewatcherbot/commit/5893ebfa432d88141f6dd649996f70ad2cd6752f))
+* resolve lint failure and update development guidelines ([#14](https://github.com/SerJZyabkin/leaguewatcherbot/issues/14)) ([c7d0ed5](https://github.com/SerJZyabkin/leaguewatcherbot/commit/c7d0ed51a386d07282132ec78c6be63bb9fdcaf4))
+* восстановление совместимости с API Mobalytics ([#15](https://github.com/SerJZyabkin/leaguewatcherbot/issues/15)) ([6ad8674](https://github.com/SerJZyabkin/leaguewatcherbot/commit/6ad8674b2c0bf7a913feeabda828dee991626e7f))
+
+
+### Features
+
+* add CI/CD pipeline with automatic semantic versioning ([#3](https://github.com/SerJZyabkin/leaguewatcherbot/issues/3)) ([ccf38ec](https://github.com/SerJZyabkin/leaguewatcherbot/commit/ccf38ec179a93d9016b0f9b81aea01359363df46))
+* add Docker containerization support ([c600585](https://github.com/SerJZyabkin/leaguewatcherbot/commit/c6005853b3ca6fa98e7a3338784c8b432fccbb7d))
+* add Gemini integration test and update prompt ([cb9feb9](https://github.com/SerJZyabkin/leaguewatcherbot/commit/cb9feb96478707faae236041aa82b19fa7ecbc92))
+* add generation parameters to Gemini configuration ([#12](https://github.com/SerJZyabkin/leaguewatcherbot/issues/12)) ([e6aafae](https://github.com/SerJZyabkin/leaguewatcherbot/commit/e6aafaebc5a6cdfabd0d18f81d9832d572fe1ccf))
+* bot as is ([eb64fae](https://github.com/SerJZyabkin/leaguewatcherbot/commit/eb64fae4613d087c5a4dd44fc29d9bd48ac90cdf))
+* finalize migration to Vertex AI ([1753eb4](https://github.com/SerJZyabkin/leaguewatcherbot/commit/1753eb4569f524d5526c4ff3d572b393f8a564d0))
+* integrate Doppler SDK for configuration management ([#9](https://github.com/SerJZyabkin/leaguewatcherbot/issues/9)) ([bed453d](https://github.com/SerJZyabkin/leaguewatcherbot/commit/bed453d4e72fcbfa48cba122d5841bffe4ac1d92))
+* integrate Gemini AI for natural language interaction ([331c8d5](https://github.com/SerJZyabkin/leaguewatcherbot/commit/331c8d5e8771dae14dac5010accab43af51b3653))
+* make Khaleesi text replacement feature configurable ([#4](https://github.com/SerJZyabkin/leaguewatcherbot/issues/4)) ([83e1a46](https://github.com/SerJZyabkin/leaguewatcherbot/commit/83e1a465ed9a377dc6eb206cfa0bb353abe87f40))
+
 # [1.5.0](https://github.com/cauchy2384/leaguewatcherbot/compare/v1.4.0...v1.5.0) (2026-05-09)
 
 
