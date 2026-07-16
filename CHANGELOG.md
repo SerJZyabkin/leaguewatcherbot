@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/cauchy2384/leaguewatcherbot/compare/v1.5.0...v1.5.1) (2026-07-16)
+
+
+### Bug Fixes
+
+* восстановление совместимости с API Mobalytics ([#15](https://github.com/cauchy2384/leaguewatcherbot/issues/15)) ([6ad8674](https://github.com/cauchy2384/leaguewatcherbot/commit/6ad8674b2c0bf7a913feeabda828dee991626e7f))
+
 # 1.0.0 (2026-07-16)
 
 
