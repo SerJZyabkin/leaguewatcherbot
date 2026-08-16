@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/cauchy2384/leaguewatcherbot/compare/v1.5.1...v1.6.0) (2026-08-16)
+
+
+### Features
+
+* add FlareSolverr for Cloudflare challenge passing ([#18](https://github.com/cauchy2384/leaguewatcherbot/issues/18)) ([f4b2a0f](https://github.com/cauchy2384/leaguewatcherbot/commit/f4b2a0f6fb7955c5e56da82df4653524892090aa))
+
 ## [1.5.1](https://github.com/cauchy2384/leaguewatcherbot/compare/v1.5.0...v1.5.1) (2026-07-16)
 
 
