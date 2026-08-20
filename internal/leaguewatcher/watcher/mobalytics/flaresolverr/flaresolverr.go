@@ -144,6 +144,20 @@ func (c *CookieGetter) GetCookie(ctx context.Context) string {
 		}
 	})
 
+	// If the solve failed (cookie still empty), reset the Once so the
+	// next call retries — handles FlareSolverr still starting up
+	// (connection refused). Reset happens OUTSIDE the Do callback:
+	// reassigning the Once from inside its own callback would corrupt
+	// the mutex the callback is currently holding.
+	c.mu.RLock()
+	needRetry := c.cookie == ""
+	c.mu.RUnlock()
+	if needRetry {
+		c.mu.Lock()
+		c.solveOnce = sync.Once{}
+		c.mu.Unlock()
+	}
+
 	c.mu.RLock()
 	defer c.mu.RUnlock()
 	return c.cookie
