@@ -54,8 +54,11 @@ func (c *CookieGetter) BaseURL() string {
 // FLARESOLVERR_URL env var: e.g. "http://flaresolverr:8191" or "http://localhost:8191"
 func NewClient(logger *slog.Logger) *CookieGetter {
 	cg := &CookieGetter{
-		baseURL:  os.Getenv("FLARESOLVERR_URL") + "/v1",
-		client:   &http.Client{Timeout: 30 * time.Second},
+		baseURL: os.Getenv("FLARESOLVERR_URL") + "/v1",
+		// The solver answers in ~30s (its challenge-detection window), so a 30s
+		// client timeout is right at the edge. 90s gives headroom so the client
+		// waits for the solver's response and collects the cf_clearance cookie.
+		client:   &http.Client{Timeout: 90 * time.Second},
 		logger:   logger,
 		stopChan: make(chan struct{}),
 	}
